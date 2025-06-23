@@ -80,6 +80,8 @@ class Bot(ZaloAPI):
                     final_text = f"{line} =)) @All"
                     mention = Mention("-1", offset=len(final_text) - 4, length=4)
                     msg = Message(text=final_text, mention=mention)
+                    self.setTyping(thread_id, ThreadType.GROUP)
+                    time.sleep(1.5)
                     self.send(msg, thread_id=thread_id, thread_type=ThreadType.GROUP)
                     print(f"✅ Đã gửi: {final_text}")
                     time.sleep(delay)
